@@ -7,9 +7,13 @@ const Favorites = () => {
     return (
         <div>
             <h1 className='text-center'>Your best tastes</h1>
+            {
+                favorites === null && <h2 className='text-center'>You have not added any item in your favorite lists. </h2>
+            }
             <div className='music-container'>
+
                 {
-                    favorites.map(music =>
+                    favorites?.map(music =>
                         <div key={music.title}>
                             <Card style={{ width: '12rem' }}>
 
@@ -30,7 +34,7 @@ const Favorites = () => {
 
                                         controls
                                     ></audio></ListGroup.Item>
-                                    
+
 
                                 </ListGroup>
 
