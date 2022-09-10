@@ -6,9 +6,12 @@ import { Alert, Confirm } from 'react-st-modal';
 import { getMusic } from '../../services/actions/MusicAction';
 import '../../styles/Styles.css'
 import { BsFillBookmarkPlusFill, BsStarFill } from "react-icons/bs";
+import CreatePlaylistModal from '../Modals/CreatePlaylistModal';
 
 
 const Home = () => {
+    const [modalShow, setModalShow] = useState(false);
+    const [listedMusic, setListedMusic] = useState({})
     const navigate = useNavigate()
     const { musicData,
         isMusicLoading,
@@ -52,51 +55,59 @@ const Home = () => {
     }
 
     return (
-        <div className="home">
-            <h1 className='text-center'>Music Masti</h1>
+        <>
 
-            <div className='music-container'>
-                {
-                    musicData.map(music =>
-                        <div key={music.title}>
-                            <Card style={{ width: '12rem' }}>
+            <div className="home">
+                <h1 className='text-center'>Music Masti</h1>
 
-                                <Card.Img variant="top" src={music.img_src} style={{ height: '12rem' }} />
-                                <Card.Body>
-                                    <Card.Title>{music.title}</Card.Title>
+                <div className='music-container'>
+                    {
+                        musicData.map(music =>
+                            <div key={music.title}>
+                                <Card style={{ width: '12rem' }}>
 
-                                </Card.Body>
+                                    <Card.Img variant="top" src={music.img_src} style={{ height: '12rem' }} />
+                                    <Card.Body>
+                                        <Card.Title>{music.title}</Card.Title>
 
-                                <ListGroup className="list-group-flush">
+                                    </Card.Body>
 
-
-
-
-                                    <ListGroup.Item>{music.artist}</ListGroup.Item>
-                                    <ListGroup.Item><audio style={{ width: '100%' }}
-                                        src={music.src}
-
-                                        controls
-                                    ></audio></ListGroup.Item>
-                                    <ListGroup.Item>
-                                        <BsFillBookmarkPlusFill ></BsFillBookmarkPlusFill>
-                                        <BsStarFill onClick={() => handleFavorite(music)}></BsStarFill>
-                                    </ListGroup.Item>
-
-                                </ListGroup>
-
-                            </Card>
-                        </div>
+                                    <ListGroup className="list-group-flush">
 
 
 
 
-                    )
-                }
+                                        <ListGroup.Item>{music.artist}</ListGroup.Item>
+                                        <ListGroup.Item><audio style={{ width: '100%' }}
+                                            src={music.src}
+
+                                            controls
+                                        ></audio></ListGroup.Item>
+                                        <ListGroup.Item>
+                                            <BsFillBookmarkPlusFill onClick={() => setModalShow(true) & setListedMusic(music)}></BsFillBookmarkPlusFill>
+                                            <BsStarFill onClick={() => handleFavorite(music)}></BsStarFill>
+                                        </ListGroup.Item>
+
+                                    </ListGroup>
+
+                                </Card>
+                            </div>
+
+
+
+
+                        )
+                    }
+                </div>
+
+
             </div>
-
-
-        </div>
+            <CreatePlaylistModal
+                show={modalShow}
+                listedMusic={listedMusic}
+                onHide={() => setModalShow(false) & setListedMusic({})}
+            />
+        </>
     );
 };
 
