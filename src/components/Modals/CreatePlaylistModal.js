@@ -1,18 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Form, Modal } from 'react-bootstrap';
 import { Alert } from 'react-st-modal'
 
 const CreatePlaylistModal = (props) => {
-    const [playlistName, setPlaylistName] = useState('')
+    const [selectedPlaylist, setSelectedPlaylist] = useState('')
+
     const [newPlaylistName, setNewPlaylistName] = useState('')
 
-    const playlistsName = JSON.parse(localStorage.getItem('playlistsName'))
-
+    const [playlistsName, setPlaylistsName] = useState([])
 
     const existingPlaylist = JSON.parse(localStorage.getItem('playlists'))
 
 
     const music = props.listedMusic;
+
+    useEffect(() => {
+        setPlaylistsName(JSON.parse(localStorage.getItem('playlistsName')))
+
+    }, [])
 
     const handleCreateNewPlaylist = async () => {
         if (playlistsName === null) {
@@ -23,8 +28,8 @@ const CreatePlaylistModal = (props) => {
         }
         else if (playlistsName.length >= 1) {
             const matched = playlistsName.filter(pn => pn.name === newPlaylistName)
-            console.log(matched)
-            if (matched.length >=1) {
+
+            if (matched.length >= 1) {
 
                 return Alert('Please enter a different name!', 'You already have a playlist with that name')
             }
@@ -38,16 +43,31 @@ const CreatePlaylistModal = (props) => {
 
 
     const handleSubmit = (e) => {
-        const playlist = e.target.playlist.value;
-
         e.preventDefault();
+        const playListedMusic = { ...music, playlist: selectedPlaylist }
+        if (selectedPlaylist === '' || selectedPlaylist === 'Select your playlist') {
+            return alert('please select a playlist')
+        }
+
 
 
         if (existingPlaylist === null) {
-            const playListedMusic = { ...music, playlist: playlist }
             const playlists = []
             playlists.push(playListedMusic)
             localStorage.setItem('playlists', JSON.stringify(playlists))
+
+        }
+        else if (existingPlaylist.length >= 1) {
+
+            const matched = existingPlaylist.filter(playlistItem => playlistItem.title === music.title && playlistItem.playlist === selectedPlaylist)
+            if (matched.length >= 1) {
+                return alert('item is added to this playlist already')
+            }
+            const playlists = existingPlaylist
+            playlists.push(playListedMusic)
+            localStorage.setItem('playlists', JSON.stringify(playlists))
+            alert('successfully added')
+
         }
 
 
@@ -74,11 +94,13 @@ const CreatePlaylistModal = (props) => {
                         playlistsName === null &&
                         <Form.Label>You don't have any playlists, please create one</Form.Label>
                     }
-                    <Form.Select onChange={(e) => setPlaylistName(e.target.value)} aria-label="Default select example" disabled={playlistsName === null}>
+                    <Form.Select onChange={(e) => setSelectedPlaylist(e.target.value)} aria-label="Default select example" disabled={playlistsName === null}>
                         <option>Select your playlist</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        {
+                            playlistsName.map(playlist => <option key={playlist.name} value={playlist.name}>{playlist.name}</option>)
+                        }
+
+
                     </Form.Select>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Song</Form.Label>
