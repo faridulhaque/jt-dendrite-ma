@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import './App.css';
@@ -9,8 +10,9 @@ import Playlists from './components/Playlists/Playlists';
 import Search from './components/Search/Search';
 import Sidebar from './components/Sidebar/Sidebar';
 
-function App() {
 
+function App() {
+ 
 
 
   return (
