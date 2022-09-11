@@ -28,7 +28,7 @@ const Home = () => {
         // console.log(musicError)
     }
 
-    
+
 
     return (
         <>
@@ -46,7 +46,7 @@ const Home = () => {
                                     </Card.Body>
                                     <ListGroup className="list-group-flush">
                                         <ListGroup.Item className='my-text'>{music.artist}</ListGroup.Item>
-                                        <ListGroup.Item><audio style={{ width: '100%' }}
+                                        <ListGroup.Item><audio className="audio"
                                             src={music.src}
                                             controls
                                         ></audio></ListGroup.Item>
