@@ -23,7 +23,7 @@ const Search = () => {
     }, [dispatch])
 
     if (isMusicLoading) {
-        return <>.....</>
+        return <>Loading...</>
     }
     if (musicError) {
         // console.log(musicError)

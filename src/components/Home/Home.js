@@ -22,7 +22,7 @@ const Home = () => {
     }, [dispatch])
 
     if (isMusicLoading) {
-        return <>Loading.....</>
+        return <>Loading...</>
     }
     if (musicError) {
         // console.log(musicError)
