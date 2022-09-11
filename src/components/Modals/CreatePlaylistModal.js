@@ -49,7 +49,7 @@ const CreatePlaylistModal = (props) => {
 
             if (matched.length >= 1) {
 
-                return Alert('Please enter a different name!', 'You already have a playlist with that name')
+                return toast.warn('Please enter a different name!', 'You already have a playlist with that name')
             }
             const updatedPlaylistsName = playlistsName;
             updatedPlaylistsName.push({ name: newPlaylistName })

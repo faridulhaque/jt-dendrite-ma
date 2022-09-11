@@ -16,7 +16,7 @@ const useAddFavorite = () =>{
         else if (existingItems.length >= 1) {
             const matched = existingItems.filter(item => item.title === music.title)
             if (matched.length >= 1) {
-                return await Alert('This item is already added to your favorite lists', 'item already exists')
+                return Alert('This item is already added to your favorite lists', 'item already exists')
             }
             const favorites = existingItems;
             favorites.push(music)
