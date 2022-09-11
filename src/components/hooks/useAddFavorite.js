@@ -24,7 +24,7 @@ const useAddFavorite = () =>{
 
         }
 
-        const result = await Confirm('You favorite music lists has been successfully updated. would you like to visit the favorites page?', 'Item successfully added')
+        const result = await Confirm('Your favorite music lists has been updated. would you like to visit the page?', 'Item successfully added')
         if (result) {
             navigate('/favorites')
         }

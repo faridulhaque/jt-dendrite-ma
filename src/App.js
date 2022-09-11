@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Banner from './components/Banner/Banner';
 import Favorites from './components/Favorites/Favorites';
+import Footer from './components/Footer/Footer';
 import Home from './components/Home/Home';
 import Playlists from './components/Playlists/Playlists';
 import Search from './components/Search/Search';
@@ -12,7 +13,7 @@ import Sidebar from './components/Sidebar/Sidebar';
 
 
 function App() {
- 
+
 
 
   return (
@@ -23,7 +24,7 @@ function App() {
           <Sidebar></Sidebar>
 
         </div>
-        <div style={{ width: '80%' }}>
+        <div style={{ width: '80%', marginBottom: '50px' }}>
           <Routes>
             <Route path="/" element={<Home></Home>}></Route>
             <Route path="/home" element={<Home></Home>}></Route>
@@ -33,6 +34,7 @@ function App() {
           </Routes>
         </div>
       </div>
+      <Footer></Footer>
     </div>
 
 

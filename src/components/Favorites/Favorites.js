@@ -7,7 +7,7 @@ const Favorites = () => {
 
     return (
         <div>
-            <h1 className='text-center my-text my-5'>Your best tastes</h1>
+            <h1 className='text-center my-text my-5'>Your best choices</h1>
             {
                 favorites === null && <h2 className='text-center my-text'>You have not added any item in your favorite lists. </h2>
             }

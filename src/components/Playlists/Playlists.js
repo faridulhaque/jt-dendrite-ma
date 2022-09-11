@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Form, ListGroup } from 'react-bootstrap';
 import '../../styles/Styles.css'
+import CreateNewPlaylistModal2 from '../Modals/CreateNewPlaylistModal2';
 
 const Playlists = () => {
+
+    const [modalShow, setModalShow] = React.useState(false);
 
     const [selectedPlaylist, setSelectedPlaylist] = useState([])
 
@@ -29,6 +32,9 @@ const Playlists = () => {
                     }
                 </Form.Select>
             </div>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <button className="my-button mt-2" onClick={() => setModalShow(true)}>Create new playlist</button>
+            </div>
             <div className='music-container mt-5'>
 
                 {
@@ -50,6 +56,10 @@ const Playlists = () => {
                         </div>)
                 }
             </div>
+            <CreateNewPlaylistModal2
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+            />
         </div>
     );
 };
