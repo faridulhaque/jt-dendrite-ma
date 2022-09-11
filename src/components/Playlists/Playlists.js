@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, Form, ListGroup } from 'react-bootstrap';
+import '../../styles/Styles.css'
 
 const Playlists = () => {
 
@@ -11,18 +12,18 @@ const Playlists = () => {
         const playlists = JSON.parse(localStorage.getItem('playlists'))
         const selected = playlists.filter(pl => pl.playlist === playlist)
         setSelectedPlaylist(selected)
-
-
     }
+
 
     return (
         <div className='mb-5'>
-            <h1 className='text-center'>Playlists</h1>
+            <h1 className='text-center my-text'>Playlists</h1>
             {
-                playlistsName?.length >= 1 && <h2 className='text-center'>You have not created any playlist.</h2>
+                playlistsName?.length === null && <h2 className='text-center my-text'>You have not created any playlist.</h2>
             }
             <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <Form.Select onChange={(e) => handlePlaylistSelection(e.target.value)} className='w-75' aria-label="Default select example">
+                    <option value="0">No playlist selected</option>
                     {
                         playlistsName?.map(pl => <option value={pl.name}>{pl.name}</option>)
                     }
@@ -33,32 +34,20 @@ const Playlists = () => {
                 {
                     selectedPlaylist?.map(music =>
                         <div key={music.title}>
-                            <Card style={{ width: '12rem' }}>
-
+                            <Card className='music-card'>
                                 <Card.Img variant="top" src={music.img_src} style={{ height: '12rem' }} />
                                 <Card.Body>
-                                    <Card.Title>{music.title}</Card.Title>
-
+                                    <Card.Title className='card-title'>{music.title}</Card.Title>
                                 </Card.Body>
-
                                 <ListGroup className="list-group-flush">
-                                    <ListGroup.Item>{music.artist}</ListGroup.Item>
+                                    <ListGroup.Item className='my-text'>{music.artist}</ListGroup.Item>
                                     <ListGroup.Item><audio style={{ width: '100%' }}
                                         src={music.src}
-
                                         controls
                                     ></audio></ListGroup.Item>
-
-
                                 </ListGroup>
-
                             </Card>
-                        </div>
-
-
-
-
-                    )
+                        </div>)
                 }
             </div>
         </div>

@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react';
-import { Button, Card, Col, Container, ListGroup, Row } from 'react-bootstrap';
+import { Card, ListGroup, } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { Alert, Confirm } from 'react-st-modal';
 import { getMusic } from '../../services/actions/MusicAction';
 import '../../styles/Styles.css'
 import { BsFillBookmarkPlusFill, BsStarFill } from "react-icons/bs";
 import CreatePlaylistModal from '../Modals/CreatePlaylistModal';
+import useAddFavorite from '../hooks/useAddFavorite';
+
 
 
 const Home = () => {
     const [modalShow, setModalShow] = useState(false);
     const [listedMusic, setListedMusic] = useState({})
-    const navigate = useNavigate()
+    const [handleFavorite] = useAddFavorite()
     const { musicData,
         isMusicLoading,
         musicError } = useSelector((state) => state);
@@ -22,85 +22,44 @@ const Home = () => {
     }, [dispatch])
 
     if (isMusicLoading) {
-        return <>.....</>
+        return <>Loading.....</>
     }
     if (musicError) {
         // console.log(musicError)
     }
 
-    const handleFavorite = async (music) => {
-        const existingItems = JSON.parse(localStorage.getItem('favorites'))
-        if (existingItems === null) {
-            const favorites = []
-            favorites.push(music)
-            localStorage.setItem('favorites', JSON.stringify(favorites))
-
-
-        }
-        else if (existingItems.length >= 1) {
-            const matched = existingItems.filter(item => item.title === music.title)
-            if (matched.length >= 1) {
-                return await Alert('This item is already added to your favorite lists', 'item already exists')
-            }
-            const favorites = existingItems;
-            favorites.push(music)
-            localStorage.setItem('favorites', JSON.stringify(favorites))
-
-        }
-
-        const result = await Confirm('You favorite music lists has been successfully updated. would you like to visit the favorites page?', 'Item successfully added')
-        if (result) {
-            navigate('/favorites')
-        }
-    }
+    
 
     return (
         <>
 
             <div className="home">
-                <h1 className='text-center'>Music Masti</h1>
-
+                <h1 className='text-center my-5 my-text'>Music Maasti</h1>
                 <div className='music-container'>
                     {
                         musicData.map(music =>
                             <div key={music.title}>
-                                <Card style={{ width: '12rem' }}>
-
+                                <Card className='music-card'>
                                     <Card.Img variant="top" src={music.img_src} style={{ height: '12rem' }} />
                                     <Card.Body>
-                                        <Card.Title>{music.title}</Card.Title>
-
+                                        <Card.Title className="card-title my-text">{music.title}</Card.Title>
                                     </Card.Body>
-
                                     <ListGroup className="list-group-flush">
-
-
-
-
-                                        <ListGroup.Item>{music.artist}</ListGroup.Item>
+                                        <ListGroup.Item className='my-text'>{music.artist}</ListGroup.Item>
                                         <ListGroup.Item><audio style={{ width: '100%' }}
                                             src={music.src}
-
                                             controls
                                         ></audio></ListGroup.Item>
                                         <ListGroup.Item>
-                                            <BsFillBookmarkPlusFill onClick={() => setModalShow(true) & setListedMusic(music)}></BsFillBookmarkPlusFill>
-                                            <BsStarFill onClick={() => handleFavorite(music)}></BsStarFill>
+                                            <BsStarFill title='Add to favorite' className='card-icon' onClick={() => handleFavorite(music)}></BsStarFill>
+                                            <BsFillBookmarkPlusFill title="Add to playlist" className='card-icon' onClick={() => setModalShow(true) & setListedMusic(music)}></BsFillBookmarkPlusFill>
                                         </ListGroup.Item>
-
                                     </ListGroup>
-
                                 </Card>
                             </div>
-
-
-
-
                         )
                     }
                 </div>
-
-
             </div>
             <CreatePlaylistModal
                 show={modalShow}

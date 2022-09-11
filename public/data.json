@@ -1,50 +1,56 @@
 [
   {
-    "title": "Titaliya",
-    "artist": "Hardy Sandhu",
-    "img_src": "./images/titaliya.jpg",
-    "src": "./music/Titliaan Warga.mp3"
+    "title": "Bhalo Achi Bhalo Theko",
+    "artist": "Durnibar Saha",
+    "img_src": "./images/bhaloachibhalotheko.jpg",
+    "src": "./music/bhaloachibhalotheko-Durnibar-Ahana.mp3"
   },
   {
-    "title": "Nach Meri Rani",
-    "artist": "Yo Yo Honey Singh",
-    "img_src": "./images/nach-meri-rani.jpg",
-    "src": "./music/Naach Meri Rani.mp3"
+    "title": "Akasher hate",
+    "artist": "Luipa",
+    "img_src": "./images/akasherhateache.jpg",
+    "src": "./music/akasherhateache.mp3"
   },
   {
-    "title": "Care Ni Karda",
-    "artist": "Yo Yo Honey Singh",
-    "img_src": "./images/care-ni-karda.jpg",
-    "src": "./music/Care Ni Karda.mp3"
+    "title": "Mayabono Biharini",
+    "artist": "Somlata Acharya",
+    "img_src": "./images/Mayabono_Biharini_Horini-Somlata.jpg",
+    "src": "./music/Mayabono_Biharini_Horini-Somlata_Acharyya-03062014_FusionBD.Com.mp3"
   },
   {
-    "title": "Burj Khalifa",
-    "artist": "Shashi",
-    "img_src": "./images/burjkalifa.jpg",
-    "src": "./music/BurjKhalifa.mp3"
+    "title": "Amar Ache Jol",
+    "artist": "Meher Afroz Shaon",
+    "img_src": "./images/Amar_Ache_Jol-Shaon.jpg",
+    "src": "./music/Amar_Ache_Jol-Shaon-06112014_FusionBD.Com.mp3"
   },
   {
-    "title": "Tango Del Fuego",
-    "artist": "Parov Stelar",
-    "img_src": "./images/ParovStelarGeorgiaGibbs-TangoDelFuego.jpg",
-    "src": "./music/ParovStelarGeorgiaGibbs-TangoDelFuego.mp3"
+    "title": "Bonde Maya Laigaise",
+    "artist": "Kalpanik",
+    "img_src": "./images/bondemayalagese.jpg",
+    "src": "./music/Bonde-Maya-Lagaiche-Kalpanik.mp3"
   },
   {
-    "title": "Take You Dancing",
-    "artist": "Jason Derulo",
-    "img_src": "./images/JasonDerulo-TakeYouDancing.jpg",
-    "src": "./music/JasonDerulo-TakeYouDancing.mp3"
+    "title": "Alga Korogo",
+    "artist": "Ramanuj Chakroborty",
+    "img_src": "./images/algakorogo.jpg",
+    "src": "./music/Alga-Koro-Khopar-Badhon-Ramanuj-Chakraborty.mp3"
   },
   {
-    "title": "Daisy",
-    "artist": "Ashnikko",
-    "img_src": "./images/Ashnikko-Daisy.jpg",
-    "src": "./music/Ashnikko-Daisy.mp3"
+    "title": "Ailare Noya Daman",
+    "artist": "Toshiba and Muza",
+    "img_src": "./images/ailarenoyadaman.jpg",
+    "src": "./music/Aila-Re-Noya-Daman_320(PagalWorld).mp3"
   },
   {
-    "title": "Dolly Song",
-    "artist": "Partz Grimbad",
-    "img_src": "./images/PatzGrimbard-DollySong.jpg",
-    "src": "./music/PatzGrimbard-DollySong.mp3"
+    "title": "Majhe Majhe Tobo",
+    "artist": "Borno Chakroborty",
+    "img_src": "./images/kenomeghase.jpg",
+    "src": "./music/Majhe_Majhe_Tobo_Dekha_Pai_by_Borno_Chakroborty_Rabindra_Sangeet_Rabindra_Fusion_-_1_[ConverteZilla.com].mp3"
+  },
+  {
+    "title": "Akash Hote Ami Chai",
+    "artist": "Nancy",
+    "img_src": "./images/akashhoteamichai.jpg",
+    "src": "./music/Akash-Hote-Ami-Chai-Nancy.mp3"
   }
 ]

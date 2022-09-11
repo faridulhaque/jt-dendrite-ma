@@ -1,11 +1,11 @@
 import React from 'react';
-import musicBanner from "./musicBanner.jpg"
-import '../../styles/Banner.css'
+import '../../styles/Styles.css'
+import banner from './banner2.jpg'
 
 const Banner = () => {
     return (
         <div className="banner">
-            <img className="banner-img" src={musicBanner} alt="banner" />
+            <img className="banner-img" src={banner} alt="banner" />
         </div>
     );
 };
