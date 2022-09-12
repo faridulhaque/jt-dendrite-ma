@@ -40,7 +40,7 @@ const Home = () => {
                         musicData.map(music =>
                             <div key={music.title}>
                                 <Card className='music-card'>
-                                    <Card.Img variant="top" src={music.img_src} style={{ height: '12rem' }} />
+                                    <Card.Img variant="top" src={music.img_src} style={{ height: '12rem', width: '100%' }} />
                                     <Card.Body>
                                         <Card.Title className="card-title my-text">{music.title}</Card.Title>
                                     </Card.Body>

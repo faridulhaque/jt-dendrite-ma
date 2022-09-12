@@ -10,6 +10,8 @@ import Home from './components/Home/Home';
 import Playlists from './components/Playlists/Playlists';
 import Search from './components/Search/Search';
 import Sidebar from './components/Sidebar/Sidebar';
+import '../src/styles/Styles.css'
+import Menu from './components/Menu/Menu';
 
 
 function App() {
@@ -19,12 +21,13 @@ function App() {
   return (
     <div className="App">
       <Banner></Banner>
+      <Menu></Menu>
       <div className="managing-sidebar">
-        <div style={{ width: '20%' }}>
+        <div className='sidebar-container'>
           <Sidebar></Sidebar>
 
         </div>
-        <div style={{ width: '80%', marginBottom: '50px' }}>
+        <div className='sidebar-outside'>
           <Routes>
             <Route path="/" element={<Home></Home>}></Route>
             <Route path="/home" element={<Home></Home>}></Route>

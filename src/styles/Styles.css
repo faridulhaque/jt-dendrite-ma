@@ -1,6 +1,14 @@
+.managing-sidebar {
+    display: flex;
+}
+
 .banner {
     width: 100%;
     height: 150px;
+}
+
+.menu{
+    display: none;
 }
 
 .home {
@@ -16,7 +24,7 @@
 }
 
 .music-card {
-    width: 12rem;
+    width: 180px;
     box-sizing: border-box;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -48,7 +56,14 @@ audio {
     width: 100%;
 }
 
+.sidebar-container{
+    width: 20%;
+}
 
+.sidebar-outside{
+    width: 80%;
+    margin-bottom: 50px;
+}
 
 
 
@@ -104,10 +119,47 @@ audio {
     color: white;
     border: none;
 }
-.footer{
+
+.footer {
     background-color: rgb(235, 149, 72);
-    width: 100%; 
+    width: 100%;
     height: 70px;
     color: white;
     padding-top: 30px;
+}
+
+
+/* responsive for small devices */
+@media only screen and (max-width: 570px) {
+    .sidebar {
+        display: none;
+    }
+
+    .music-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    
+
+
+    .managing-sidebar {
+        width: 100%;
+        display: block;
+    }
+
+    .sidebar-container{
+        display: none;
+    }
+
+    .sidebar-outside{
+        width: 100%;
+    }
+    .menu{
+        display: block;
+    }
+    .menu a{
+        color:  rgb(235, 149, 72);
+        padding: 0 5px;
+        text-decoration: none;
+    }
 }
